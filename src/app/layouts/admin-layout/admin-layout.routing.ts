@@ -13,7 +13,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { 
-        path: "theaters",
+        path: 'theaters', // Esta es la ruta del módulo
         loadChildren: () => import('src/app/pages/theaters/theaters.module').then(m => m.TheatersModule)
     }
 ];
