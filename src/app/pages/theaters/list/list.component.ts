@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Theater } from 'src/app/models/theater.model';
 import { TheaterService } from 'src/app/services/theater.service';
 import Swal from 'sweetalert2';
@@ -11,7 +12,9 @@ import Swal from 'sweetalert2';
 export class ListComponent implements OnInit {
   theaters: Theater[];
 
-  constructor(private service: TheaterService) {
+  constructor(private service: TheaterService,
+              private router: Router
+  ) {
     this.theaters = []
   }
 
@@ -23,7 +26,6 @@ export class ListComponent implements OnInit {
     // El 'susbcribe' hace que se quede esperando a que dé una respuesta, similar a un 'await'
     this.service.list().subscribe(data => {
       this.theaters = data;
-      console.log(JSON.stringify(this.theaters))
     })
   }
 
@@ -50,5 +52,16 @@ export class ListComponent implements OnInit {
         });
       }
     }) 
+  }
+  create() {
+    this.router.navigate(['theaters/create']);
+  }
+
+  view(id: number) {
+    this.router.navigate(['theaters/view/'+id]);
+  }
+
+  update(id: number) {
+    this.router.navigate(['theaters/update/'+id]);
   }
 }
