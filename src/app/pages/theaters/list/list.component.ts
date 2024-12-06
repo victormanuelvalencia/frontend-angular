@@ -53,6 +53,7 @@ export class ListComponent implements OnInit {
       }
     }) 
   }
+  
   create() {
     this.router.navigate(['theaters/create']);
   }

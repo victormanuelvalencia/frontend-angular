@@ -19,7 +19,7 @@ export class ManageComponent implements OnInit {
   ) {
     this.mode = 1;
     // Objeto creado por defecto, enlaza la vista con el controlador
-    this.theater = {id: 0, capacity: 0, location: ""}
+    this.theater = {id: 0, capacity: 0, location: ""};
   }
 
   ngOnInit(): void {
